@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import SearchMovie from './SearchMovie'
-import PopularMovieList from './PopularMovieList'
 import { useNavigate } from 'react-router-dom'
 
 export default function HomePage() {
@@ -29,8 +28,7 @@ export default function HomePage() {
                     <div className="searchInput">
                         <input className='p-2 w-100 border border-info' type="text" value={searchMovie} onChange={(e) => { handleSearchInput(e.target.value) }} placeholder='search movie...' />
                     </div>
-                    {isUserSearching ? <SearchMovie query={searchMovie} /> :
-                        <PopularMovieList />}
+                    <SearchMovie query={searchMovie} />
                 </div>
             </div>
         </div>

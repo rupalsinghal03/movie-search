@@ -3,6 +3,8 @@ import { IMovieResp } from "../interfaces/response.interfaces";
 
 const BASEURL = 'https://api.themoviedb.org'
 const API_KEY = "689aa4cbdc0868b6b82ad99aa88409c2"
+export const MEDIA_BASEURL = 'https://image.tmdb.org/t/p/w500'
+
 export const getPopularMovies = async (page: Number): Promise<IMovieResp | undefined> => {
     const url = BASEURL + `/3/movie/popular?api_key=${API_KEY}&page=${page}`
     try {
