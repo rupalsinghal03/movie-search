@@ -8,7 +8,6 @@ export default function HomePage() {
     const [searchMovie, setSearchMovie] = useState("")
     const [isUserSearching, setIsUserSearching] = useState<boolean>(false)
     const handleSearchInput = (query: string) => {
-        console.log(query, "query")
         setSearchMovie(query)
         if (query.trim() === "") {
             setIsUserSearching(false)
@@ -24,12 +23,16 @@ export default function HomePage() {
         }
     }
     return (
-        <div>
-            <div className="searchInput">
-                <input type="text" value={searchMovie} onChange={(e) => { handleSearchInput(e.target.value) }} />
+        <div className="container">
+            <div className="row">
+                <div className="col-12 pt-4">
+                    <div className="searchInput">
+                        <input className='p-2 w-100 border border-info' type="text" value={searchMovie} onChange={(e) => { handleSearchInput(e.target.value) }} placeholder='search movie...' />
+                    </div>
+                    {isUserSearching ? <SearchMovie query={searchMovie} /> :
+                        <PopularMovieList />}
+                </div>
             </div>
-            {isUserSearching ? <SearchMovie query={searchMovie} /> :
-                <PopularMovieList />}
         </div>
     )
 }

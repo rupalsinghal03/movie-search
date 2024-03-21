@@ -3,7 +3,7 @@ import { IMovieResp } from "../interfaces/response.interfaces";
 
 const BASEURL = 'https://api.themoviedb.org'
 const API_KEY = "689aa4cbdc0868b6b82ad99aa88409c2"
-export const getPopularMovies = async (page: Number): Promise<IMovieResp | any> => {
+export const getPopularMovies = async (page: Number): Promise<IMovieResp | undefined> => {
     const url = BASEURL + `/3/movie/popular?api_key=${API_KEY}&page=${page}`
     try {
         const response: AxiosResponse<IMovieResp> = await axios.get<IMovieResp>(url);
@@ -23,7 +23,7 @@ export const getPopularMovies = async (page: Number): Promise<IMovieResp | any> 
         }
     }
 }
-export const getSearchedMovies = async (page: Number, query: string): Promise<IMovieResp | any> => {
+export const getSearchedMovies = async (page: Number, query: string): Promise<IMovieResp | undefined> => {
     const url = BASEURL + `/3/search/movie?api_key=${API_KEY}&query=${query}&page=${page}`
     try {
         const response: AxiosResponse<IMovieResp> = await axios.get<IMovieResp>(url);
